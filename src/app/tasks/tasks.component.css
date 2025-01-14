@@ -34,7 +34,7 @@ body {
     font-weight: normal;
 }
 .sidebar {
-    width: 80px;
+    width: 300px;
     display: flex;
     margin-top: 70px;
     background-color: #bcced6;
@@ -86,7 +86,7 @@ body {
 }
 
 .menu-icon {
-    
+    margin-right:10px;
     width: 40px;
     height: 30px;
 }
