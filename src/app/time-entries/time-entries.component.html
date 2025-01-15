@@ -1,1 +1,33 @@
-<h1>Time Entries</h1>
+<table>
+    <thead>
+      <tr>
+        <th>Date</th>
+        <th>Category</th>
+        <th>Customer</th>
+        <th>Billable</th>
+        <th>Time Spent (hrs)</th>
+        <th>Status</th>
+        <th>Comments</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let entry of entries">
+        <td>{{ entry.date }}</td>
+        <td>{{ entry.category }}</td>
+        <td>{{ entry.customer }}</td>
+        <td>
+          <input type="checkbox" [checked]="entry.billable" disabled />
+        </td>
+        <td>{{ entry.timeSpent }}</td>
+        <td>
+          <input type="checkbox" [checked]="entry.status" disabled />
+        </td>
+        <td>{{ entry.comments }}</td>
+        <td>
+          <button (click)="editEntry(entry)">Edit</button>
+          <button (click)="deleteEntry(entry)">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
