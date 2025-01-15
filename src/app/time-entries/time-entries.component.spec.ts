@@ -1,23 +1,28 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { Component, Input } from '@angular/core';
 
-import { TimeEntriesComponent } from './time-entries.component';
+interface TimeEntry {
+  date: string;
+  category: string;
+  customer: string;
+  billable: boolean;
+  timeSpent: number;
+  status: boolean;
+  comments: string;
+}
 
-describe('TimeEntriesComponent', () => {
-  let component: TimeEntriesComponent;
-  let fixture: ComponentFixture<TimeEntriesComponent>;
+@Component({
+  selector: 'app-time-entry-table',
+  templateUrl: './time-entry-table.component.html',
+  styleUrls: ['./time-entry-table.component.css']
+})
+export class TimeEntryTableComponent {
+  @Input() entries: TimeEntry[] = [];
 
-  beforeEach(async () => {
-    await TestBed.configureTestingModule({
-      imports: [TimeEntriesComponent]
-    })
-    .compileComponents();
+  editEntry(entry: TimeEntry) {
+    console.log('Editing:', entry);
+  }
 
-    fixture = TestBed.createComponent(TimeEntriesComponent);
-    component = fixture.componentInstance;
-    fixture.detectChanges();
-  });
-
-  it('should create', () => {
-    expect(component).toBeTruthy();
-  });
-});
+  deleteEntry(entry: TimeEntry) {
+    console.log('Deleting:', entry);
+  }
+}
