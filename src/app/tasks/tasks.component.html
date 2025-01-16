@@ -3,7 +3,9 @@
   <div class="flex">
     <div class="sidebar" [class.minimized]="isSidebarMinimized">
       <nav class="sidebar-nav">
-        <div class="Title"><button class="toggle-btn" (click)="toggleSidebar()">☰</button>
+        <div class="Title">
+          <img src="dcxlogo.jpg" alt="logo"> <br>
+          <button class="toggle-btn" (click)="toggleSidebar()">☰</button>
           <h4 *ngIf="!isSidebarMinimized">Timesheets Management</h4>
         </div>
         <ul class="menu-list">
@@ -16,7 +18,7 @@
             </a>
           </li>
           <li class="menu-item">
-            <a [routerLink]="['/timesheets']" class="menu-link">
+            <a [routerLink]="['/timesheets']" class="menu-link active">
               <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
               </svg>
@@ -42,19 +44,36 @@
           </li>
         </ul>
       </nav>
-      <section>
-        <div class="toggle-btn">
+      
+        <div class="user-icon">
           👤<h4 *ngIf="!isSidebarMinimized">User</h4>
 
         </div>
-      </section>
+    
     </div>
  
   </div>
  
   <main>
     <div class="main-content">
-      <h1>Task Capturing</h1>
+      <h1>Add Tasks</h1>
+<br>
+<br>
+      <form class="form">
+        <label>Project
+          <input type="Dropdown"[(ngModel)]="NewEntry.project" name="project" required/>
+        </label>
+       
+        <label>Tasks
+          <input type="text" [(ngModel)]="NewEntry.task" name="Tasks" required/>
+        </label>
+
+        <label>Hours
+          <input type="number" [(ngModel)]="NewEntry.hours" name="hours" required/>
+        </label>
+
+        <button type="button" (click)="addEntry()">Add Task</button>
+      </form>
     </div>
   </main>
  
