@@ -2,8 +2,13 @@ import { Component } from '@angular/core';
 import { AuthService } from '../service/auth.service';
 import { Router } from '@angular/router';
 
+import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+
 @Component({
   selector: 'app-login',
+  standalone: true,
+  imports: [FormsModule, CommonModule],
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
   
@@ -12,7 +17,6 @@ export class LoginComponent {
 
   username: string = '';
   password: string = '';
-  email: string = '';
   confirmPassword: string = '';
   errorMessage: string = '';
   isRegistering: boolean = false;  //flag, reg or login
@@ -39,7 +43,7 @@ export class LoginComponent {
     const success = this.authService.login(this.username, this.password);
     if(success) {
       this.authService.setCurrentUser(this.username);
-      this.router.navigate(['/dashboard']);
+      this.router.navigate(['/Dashboard']); 
     }else{
       this.errorMessage = 'Invalid credentials';
     }
