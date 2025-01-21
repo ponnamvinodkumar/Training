@@ -1,5 +1,10 @@
 <div class="container">
-  <h2>Time Entries</h2>
+  <div style="padding:4px; display: flex; justify-content: space-between; align-items: center;">
+    <h1>Datacentrix Timesheets Management</h1>
+    <img src='datacentrix logo.png' alt='Datacentrix' style="width: 100px; height: auto;"/>
+
+  </div>
+
 
   <form (submit)="addEntry()" class="entry-form">
     <input type="date" [(ngModel)]="newEntry.date" name="date" required />

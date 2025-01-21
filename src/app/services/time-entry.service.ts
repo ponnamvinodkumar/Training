@@ -15,6 +15,27 @@ export interface TimeEntry {
   providedIn: 'root'
 })
 export class TimeEntryService {
+  private timeEntries = [
+    {
+      date: '2025-01-01',
+      category: 'Development',
+      customer: 'ABC Corp',
+      billable: true,
+      timeSpent: 4,
+      status: true,
+      comments: 'Worked on project ABC'
+    },
+    {
+      date: '2025-01-02',
+      category: 'Testing',
+      customer: 'XYZ Ltd',
+      billable: false,
+      timeSpent: 3,
+      status: false,
+      comments: 'Performed unit testing'
+    }
+  ];
+
   private timeEntriesSubject = new BehaviorSubject<TimeEntry[]>([]);
   private timeEntries$ = this.timeEntriesSubject.asObservable();
 
@@ -23,6 +44,9 @@ export class TimeEntryService {
   // Get all time entries
   getTimeEntries(): Observable<TimeEntry[]> {
     return this.timeEntries$;
+  }
+  getTimeEntrie() {
+    return this.timeEntries;
   }
 
   // Add a new time entry
