@@ -1,4 +1,5 @@
 <html>
+  <title></title>
   <body>
   <div class="flex">
     <div class="sidebar" [class.minimized]="isSidebarMinimized">
@@ -49,11 +50,11 @@
           👤<h4 *ngIf="!isSidebarMinimized">User</h4>
 
         </div>
-    
     </div>
- 
   </div>
- 
+
+ <router-outlet></router-outlet>
+
   <main>
     <div class="main-content">
       <h1>Add Tasks</h1>
