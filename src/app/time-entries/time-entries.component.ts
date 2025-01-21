@@ -3,6 +3,7 @@ import { TimeEntry, TimeEntryService } from '../services/time-entry.service';
 import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
+
 @Component({
   selector: 'app-time-entries',
   templateUrl: './time-entries.component.html',
@@ -23,6 +24,9 @@ export class TimeEntriesComponent implements OnInit {
   constructor(private timeEntryService: TimeEntryService) {}
 
   ngOnInit(): void {
+
+  
+    this.timeEntries = this.timeEntryService.getTimeEntrie();
     this.timeEntryService.getTimeEntries().subscribe(entries => {
       this.timeEntries = entries;
     });
