@@ -3,8 +3,10 @@ import { DashboardComponent } from './dashboard/dashboard.component';
 
 import { LoginComponent } from './login/login.component';
 import { TasksComponent } from './tasks/tasks.component';
+
 import { TimeEntriesComponent } from './time-entries/time-entries.component';
 
+import { TimesheetComponent } from './timesheets/timesheet.component';
 
 export const routes: Routes = [
   {
@@ -18,6 +20,7 @@ export const routes: Routes = [
     title: 'Tasks',
   },
   {
+
     path:'Dashboard',
     component:DashboardComponent,
     title:'Dashboard',
@@ -26,5 +29,11 @@ export const routes: Routes = [
     component:TimeEntriesComponent,
     title:'TimeEntries',
   }
+
+    path: 'Timesheet',
+    component: TimesheetComponent,
+    title: 'Timesheet',
+  },
+
 ];
 
