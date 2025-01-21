@@ -1,31 +1,47 @@
-<table>
+<div class="container">
+  <h2>Time Entries</h2>
+
+  <form (submit)="addEntry()" class="entry-form">
+    <input type="date" [(ngModel)]="newEntry.date" name="date" required />
+    <input type="text" [(ngModel)]="newEntry.category" name="category" placeholder="Category" required />
+    <input type="text" [(ngModel)]="newEntry.customer" name="customer" placeholder="Customer" required />
+    <input type="number" [(ngModel)]="newEntry.timeSpent" name="timeSpent" placeholder="Hours" required />
+    <input type="text" [(ngModel)]="newEntry.comments" name="comments" placeholder="Comments" />
+    <label>
+      <input type="checkbox" [(ngModel)]="newEntry.billable" name="billable" /> Billable
+    </label>
+    <label>
+      <input type="checkbox" [(ngModel)]="newEntry.status" name="status" /> Completed
+    </label>
+    <button type="submit">Add Entry</button>
+  </form>
+
+  <table>
     <thead>
       <tr>
         <th>Date</th>
         <th>Category</th>
         <th>Customer</th>
         <th>Billable</th>
-        <th>Time Spent(hrs)</th>
+        <th>Time Spent</th>
         <th>Status</th>
         <th>Comments</th>
         <th>Actions</th>
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let entry of entries">
+      <tr *ngFor="let entry of timeEntries; let i = index">
         <td>{{ entry.date }}</td>
         <td>{{ entry.category }}</td>
         <td>{{ entry.customer }}</td>
-        <td>
-          <input type="checkbox" [checked]="entry.billable" disabled />
-        </td>
+        <td>{{ entry.billable ? 'Yes' : 'No' }}</td>
         <td>{{ entry.timeSpent }}</td>
-        <td>
-          <input type="checkbox" [checked]="entry.status" disabled />
-        </td>
+        <td>{{ entry.status ? 'Completed' : 'Pending' }}</td>
         <td>{{ entry.comments }}</td>
         <td>
+          <button (click)="deleteEntry(i)">Delete</button>
         </td>
       </tr>
     </tbody>
   </table>
+</div>

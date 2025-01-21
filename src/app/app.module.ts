@@ -1,17 +1,22 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { AppComponent } from './app.component';
-
 import { FormsModule } from '@angular/forms'; // Import FormsModule
+import { CommonModule } from '@angular/common'; // Import CommonModule for *ngIf
+
+import { AppComponent } from './app.component';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
+    AppComponent,
+    LoginComponent // Declare the LoginComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule,AppComponent // Add FormsModule here
+    FormsModule, // Add FormsModule here
+    CommonModule  // Add CommonModule here if needed
   ],
   providers: [],
-
+  bootstrap: [AppComponent]
 })
 export class AppModule {}
