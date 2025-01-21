@@ -12,6 +12,7 @@ import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class TimesheetComponent {
  
+  
     isSidebarMinimized = true;
   
     toggleSidebar() {
