@@ -8,8 +8,6 @@ import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    LoginComponent // Declare the LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -17,6 +15,6 @@ import { LoginComponent } from './login/login.component';
     CommonModule  // Add CommonModule here if needed
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: []
 })
 export class AppModule {}
