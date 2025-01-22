@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -11,7 +11,9 @@ import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './tasks.component.css'
 })
 export class TasksComponent {
- 
+
+ constructor(private router: Router){}
+
     isSidebarMinimized = true;
   
     toggleSidebar() {
@@ -20,6 +22,8 @@ export class TasksComponent {
 
 
   //Task Capturing
+
+
   TaskEntries:{project:string; hours:string; task:string}[]=[];
   NewEntry={project: '', hours:'', task:''};
 
@@ -28,6 +32,7 @@ export class TasksComponent {
     this.TaskEntries.push({...this.NewEntry});
     console.log('After adding:', this.TaskEntries);
     this.NewEntry = {project:'', hours:'', task:''};
+    this.router.navigate(['/Dashboard']);
   }
   
   }
