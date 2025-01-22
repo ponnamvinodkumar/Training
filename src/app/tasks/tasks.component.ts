@@ -22,17 +22,17 @@ export class TasksComponent {
      //AddTask
      projectName = '';
      taskName = '';
-     hours!: number;
-     tasks: { projectName: string; taskName: string; hours: number }[] = [];
+     duration!: number;
+     tasks: { projectName: string; taskName: string; duration: number }[] = [];
    
      constructor(private taskService: TaskServiceService) {}
 
      addTask(){
-      if(this.projectName && this.taskName && this.hours !=null){
+      if(this.projectName && this.taskName && this.duration !=null){
         this.taskService.addTask({
           projectName:this.projectName,
           taskName: this.taskName,
-          hours: this.hours
+          duration: this.duration
         });
         this.tasks = this.taskService.getTasks();
         this.restForm();
@@ -44,6 +44,6 @@ export class TasksComponent {
 
      restForm(){this.projectName='';
       this.taskName='';
-      this.hours= NaN;
+      this.duration= NaN;
      }
 }
