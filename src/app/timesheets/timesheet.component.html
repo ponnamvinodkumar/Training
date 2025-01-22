@@ -76,10 +76,11 @@
           <input type="number" [(ngModel)]="NewEntry.hours" name="hours" required/>
         </label>
 
-        <label>Billable</label>
-        <input type="checkbox" name="Billable">
+        <label>Billable
+          <input type="checkbox" [(ngModel)]="NewEntry.billable" name="Billable" required>
+        </label>
 
-        <button type="button" (click)="addEntry()">Add Timesheet</button>
+        <button type="button" (click)="addEntry()">Submit</button>
       </form>
     </div>
   </main>
