@@ -1,4 +1,5 @@
 <html>
+  <title>Dashboard</title>
   <body>
   <div class="flex"> 
     <div class="sidebar" [class.minimized]="isSidebarMinimized">
@@ -57,7 +58,7 @@
     
     </div>
   </div>
- 
+  <router-outlet></router-outlet>
   <main>
     <div class="main-content">
       <h1>Datacentrix Timesheets Management</h1>
@@ -70,7 +71,9 @@
       <div class="column">
         <a [routerLink]="['/Timesheets']">Add Timesheets</a>
       </div>
-      <div class="column">View Timesheets</div>
+      <div class="column">
+        <a [routerLink]="['/TimeEntries']">View Timesheets</a>
+      </div>
   </div>
   </section>
   </div>
