@@ -6,10 +6,14 @@
       <nav class="sidebar-nav">
 
         <div class="Title">
-          <img src="dcxlogo.jpg" alt="logo"> <br>
-          <button class="toggle-btn" (click)="toggleSidebar()">☰</button>
-          <h4 *ngIf="!isSidebarMinimized">Timesheets Management</h4>
+          <div class="logo" style="justify-content: center">
+          <button (click)="toggleSidebar()"><img src="datacentrix logo.png" alt="Logo" class="logo"> </button>
+          
+          <span class="app-name" *ngIf="!isSidebarMinimized"> Timesheets Management</span>
+          
         </div>
+        </div>
+        
 
         <ul class="menu-list">
           <li class="menu-item">
@@ -62,7 +66,7 @@
   <main>
     <div class="main-content">
       <h1>Datacentrix Timesheets Management</h1>
-    <section>
+    <div class="section">
     <div class="row">
       <div class="column">
          <a [routerLink]="['/Tasks']">Add a Task</a>
@@ -75,7 +79,7 @@
         <a [routerLink]="['/TimeEntries']">View Timesheets</a>
       </div>
   </div>
-  </section>
+</div>
   </div>
   </main>
  

@@ -32,7 +32,7 @@ export class TasksComponent {
     this.TaskEntries.push({...this.NewEntry});
     console.log('After adding:', this.TaskEntries);
     this.NewEntry = {project:'', hours:'', task:''};
-    this.router.navigate(['/Timesheet']);
+    this.router.navigate(['/Dashboard']);
   }
   
   }

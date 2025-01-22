@@ -7,7 +7,7 @@
   --menu-item-hover-bg: #f0f0f0;
   --menu-item-active-bg: #e0e7ff;
   --menu-item-active-color: #4f46e5;
-  --icon-color:#a9cf44;
+  --icon-color: #a9cf44;
   --transition-speed: 0.3s;
   --font-family: 'Montserrat', sans-serif;
 }
@@ -22,28 +22,42 @@
 
 body {
   background: #dbdcdc;
-  transition: background var(--transition-speed);
+  transition: var(--transition-speed);
   color: #000;
 }
 
+/* Header Styles */
 .Title {
   background-color: #1fb0e5;
   color: grey;
-  height: 100px;
-  padding: 30px;
+  height: 150px;
+  padding: 20px;
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  
 
-.menu-text {
-  font-weight: bold;
-  color: var(--menu-item-color);
 }
 
 /* Sidebar Styles */
+.logo-section {
+  justify-content: center;
+ 
+}
+
+.logo {
+  width: 50px; /* Adjust as needed */
+  height: 50px;
+  justify-content: center;
+}
+
+.app-name {
+  color: var(--menu-item-color);
+  padding-top: 10px;
+  font-weight: bold;
+  font-size: 1.2rem;
+  justify-content: center;
+}
 .sidebar {
-  position:fixed;
+  position: fixed;
   background: var(--background-color);
   width: var(--sidebar-width-expanded);
   height: 100vh;
@@ -68,7 +82,7 @@ body {
 
 .menu-item {
   margin: 10px 0;
-  padding:20px;
+  padding: 20px;
 }
 
 .menu-link {
@@ -83,7 +97,6 @@ body {
 
 .menu-link:hover {
   background-color: var(--menu-item-hover-bg);
-  color: var(--menu-item-color);
 }
 
 .menu-link.active {
@@ -106,6 +119,31 @@ body {
 .sidebar.minimized .menu-text {
   display: none;
 }
+
+.user-icon {
+  position: absolute;
+  bottom: 20px;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.user-icon img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background-color: #f9f9f9;
+  padding: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.user-icon img:hover {
+  transform: scale(1.1);
+}
+
+/* Toggle Button */
 .toggle-btn {
   background-color: transparent;
   border: none;
@@ -118,80 +156,107 @@ body {
   transform: scale(1.2);
 }
 
-/*Main styles*/
-main{
+/* Main Content Styles */
+main {
   display: flex;
   justify-content: space-between;
-  width: 90%; /* Adjust width as needed */
+  width: 90%;
   max-width: 1200px;
   margin: 0 auto;
   padding: 10px;
-  
 }
+
 .main-content {
-  position: relative;
   display: flex;
   flex: 1;
   align-items: flex-start;
   padding: 10px;
-  width: 80%; /* Adjust width as needed */
+  width: 80%;
   max-width: 1200px;
   margin-top: 50px;
   margin-left: 10px;
-  min-height: 100px; /* Ensure there's enough height */
-  }
+  min-height: 100px;
+}
 
+/* Column Layout */
+.column {
+  float: left;
+  width: 50%;
+  margin: 10px;
+  background-color: #a9cf44;
+  border-radius: 20px;
+  padding: 20px;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
 
 /* Section Styles */
-section {
-  background: #dccd8f;
+.section {
   border-radius: 20px;
   height: 70px;
   padding: 10px;
-  margin-top: 100px;
-  margin-left: 10px;
-  margin-right: 10px;
+  margin: 160px 10px 0 10px;
   display: flex;
   align-items: center;
   justify-content: center;
-  position:fixed;
+  position: fixed;
 }
 
 .settings-icon {
   margin-left: auto;
   cursor: pointer;
 }
-/* User Icon Block Fixed at Bottom */
-.user-icon {
-  position: absolute; /* Ensures the element is positioned relative to its container */
-  bottom: 20px; /* Distance from the bottom of the sidebar */
-  width: 100%; /* Ensure it spans the width of the sidebar */
+
+/* Form Styles */
+.form {
+  width: 800px;
+  margin: 5rem auto;
+  padding: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background: #f9f9f9;
+}
+
+label {
   display: flex;
-  justify-content: center;
-  padding-bottom: 10px;
-  align-items: center;
+  flex-direction: column;
+  margin-bottom: 1rem;
+  font-weight: bold;
+  color: #333;
 }
 
-.user-icon img {
-  width: 50px; /* Adjust the size of the icon as needed */
-  height: 50px;
-  border-radius: 50%;
-  background-color: #f9f9f9; /* Optional background color for better visibility */
-  padding: 5px;
+input {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  margin-top: 0.5rem;
+  transition: border-color 0.3s;
+}
+
+
+
+.button {
+  width: 100%;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #007bff;
+  border: none;
+  border-radius: 4px;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.user-icon img:hover {
-  transform: scale(1.1); /* Adds a hover effect */
-}
-
-
-/* Smooth Transitions for Minimized Sidebar */
-.sidebar,
-.menu-link,
-.menu-icon {
-  transition: all var(--transition-speed);
+button:hover {
+  background-color: #0056b3;
+  transform: scale(1.05);
 }
 
 /* Optional Scrollbar Style */
@@ -203,45 +268,10 @@ section {
   background: rgba(255, 255, 255, 0.2);
   border-radius: 10px;
 }
-/*form css*/
-.form {
-  width: 800px;
-  margin: 5rem auto;
-  padding:1.5rem;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  font-family: 'Arial', sans-serif;
-  background: #f9f9f9;
- }
- 
- label{
-   display:flex;
-   flex-direction: column;
-   margin-bottom: 1rem;
-   font-weight: bold;
-   color:#333;
- }
- 
- input{
-   padding: 0.75rem;
-   font-size: 1rem;
-   border:1px solid #ccc;
-   border-radius: 4px;
-   margin-top: 0.5rem;
-   transition: border-color 0.3s;
- }
 
- button{
-  width: 100%;
-  padding:0.75rem;
-  font-size: 1rem;
-  font-weight: bold;
-  color:#fff;
-  background-color: #007bff;
-  border:none;
-  border-radius:4px;
-  cursor: pointer;
-  transition: background-color 0.3s, transform 0.2s;
-
+/* Smooth Transitions */
+.sidebar,
+.menu-link,
+.menu-icon {
+  transition: all var(--transition-speed);
 }
