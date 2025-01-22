@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject, Observable } from 'rxjs';
+
 
 export interface TaskEntry{
   project: string;
@@ -11,20 +11,15 @@ export interface TaskEntry{
   providedIn: 'root'
 })
 export class TaskServiceService {
-  addData(newItem: string) {
-    throw new Error('Method not implemented.');
+  private tasks: { projectName: string; taskName: string; hours: number}[]=[];
+
+  constructor(){}
+
+  addTask(task: { projectName: string; taskName:string; hours: number}){
+    this.tasks.push(task);
   }
 
-  private TaskItem: string [] = [];
-
-  constructor() { }
-  addItem(item:string):void{
-    this.TaskItem.push(item);
+  getTasks() {
+    return this.tasks;
   }
-
-  getData(): string []{
-    return this.TaskItem;
-  }
- 
-
 }

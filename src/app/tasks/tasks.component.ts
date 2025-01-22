@@ -1,7 +1,8 @@
 import { Component,OnInit } from '@angular/core';
 import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
-import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, FormGroup, ReactiveFormsModule, FormBuilder, Validators } from '@angular/forms';
+import { TaskServiceService } from '../ServiceTasks/task-service.service';
 
 
 @Component({
@@ -12,28 +13,37 @@ import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 })
 export class TasksComponent {
 
- constructor(private router: Router){}
-
-    isSidebarMinimized = true;
-  
-    toggleSidebar() {
+ isSidebarMinimized = true;
+ 
+ toggleSidebar() {
       this.isSidebarMinimized = !this.isSidebarMinimized;
     }
 
+     //AddTask
+     projectName = '';
+     taskName = '';
+     hours!: number;
+     tasks: { projectName: string; taskName: string; hours: number }[] = [];
+   
+     constructor(private taskService: TaskServiceService) {}
 
-  //Task Capturing
+     addTask(){
+      if(this.projectName && this.taskName && this.hours !=null){
+        this.taskService.addTask({
+          projectName:this.projectName,
+          taskName: this.taskName,
+          hours: this.hours
+        });
+        this.tasks = this.taskService.getTasks();
+        this.restForm();
+      }
+      else {
+        alert('All Fields are required.');
+      }
+     }
 
-
-  TaskEntries:{project:string; hours:string; task:string}[]=[];
-  NewEntry={project: '', hours:'', task:''};
-
-  addEntry(){
-    console.log('Before adding:', this.TaskEntries);
-    this.TaskEntries.push({...this.NewEntry});
-    console.log('After adding:', this.TaskEntries);
-    this.NewEntry = {project:'', hours:'', task:''};
-    this.router.navigate(['/Dashboard']);
-  }
-  
-  }
-  
+     restForm(){this.projectName='';
+      this.taskName='';
+      this.hours= NaN;
+     }
+}
