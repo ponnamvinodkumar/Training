@@ -29,11 +29,11 @@ export const routes: Routes = [
     component:TimeEntriesComponent,
     title:'TimeEntries',
   },
+
   {
     path: 'Timesheet',
     component: TimesheetComponent,
     title: 'Timesheet',
-  },
-
+  }
 ];
 
