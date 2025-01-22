@@ -1,25 +1,52 @@
+<body>
+<app-sidebar></app-sidebar>
 <div class="container">
-  <div style="padding:4px; display: flex; justify-content: space-between; align-items: center;">
-    <h1>Datacentrix Timesheets Management</h1>
-    <img src='datacentrix logo.png' alt='Datacentrix' style="width: 100px; height: auto;"/>
+  <div style="padding-bottom:40px; display: flex; justify-content: space-between; align-items: center;">
+    <h1 style="color:white;">Timesheet Management System</h1>
+  
 
   </div>
 
 
-  <form (submit)="addEntry()" class="entry-form">
-    <input type="date" [(ngModel)]="newEntry.date" name="date" required />
-    <input type="text" [(ngModel)]="newEntry.category" name="category" placeholder="Category" required />
-    <input type="text" [(ngModel)]="newEntry.customer" name="customer" placeholder="Customer" required />
-    <input type="number" [(ngModel)]="newEntry.timeSpent" name="timeSpent" placeholder="Hours" required />
-    <input type="text" [(ngModel)]="newEntry.comments" name="comments" placeholder="Comments" />
-    <label>
-      <input type="checkbox" [(ngModel)]="newEntry.billable" name="billable" /> Billable
-    </label>
-    <label>
-      <input type="checkbox" [(ngModel)]="newEntry.status" name="status" /> Completed
-    </label>
-    <button type="submit">Add Entry</button>
-  </form>
+
+          <form (submit)="addEntry()" class="entry-form" class="inputTable">
+            <table style="border:none !important" class="inputTable">
+              <tr style="border:none !important">
+                <td> 
+                  <input type="date" [(ngModel)]="newEntry.date" name="date" required />
+                </td>
+                <td>
+                  <input type="text" [(ngModel)]="newEntry.category" name="category" placeholder="Category" required />
+                </td>
+                <td>
+                  <input type="text" [(ngModel)]="newEntry.customer" name="customer" placeholder="Customer" required />
+                </td>
+                <td>
+                  <input type="checkbox" [(ngModel)]="newEntry.billable" name="billable" /> Billable
+                
+                </td>
+                <td>
+                  <input type="number" [(ngModel)]="newEntry.timeSpent" name="timeSpent" placeholder="Hours" required />
+                </td>
+                <td>
+                  <label>
+                 
+                 
+                  </label>
+                </td>
+                <td>
+                  <label>
+                    <textarea type="text" [(ngModel)]="newEntry.comments" name="comments" placeholder="Comments" ></textarea>
+              
+                  </label>
+                </td>
+                <td>
+                  <button type="submit">Add Entry</button>
+                </td>
+              </tr>
+            </table>
+          </form>
+
 
   <table>
     <thead>
