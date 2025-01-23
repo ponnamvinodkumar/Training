@@ -120,8 +120,8 @@
 
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     backdrop-filter: blur(10px);
-    background-color: rgba(102, 104, 105, 0.5);
-    background-color: aqua;
+    background-color: rgba(228, 242, 249, 0.5);
+    
     transition: width var(--transition-speed);
     overflow: hidden;
   }
