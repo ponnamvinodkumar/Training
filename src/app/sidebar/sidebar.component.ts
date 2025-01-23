@@ -9,7 +9,7 @@ import { CommonModule } from '@angular/common';
   ,imports: [RouterLink,CommonModule]
 })
 export class SidebarComponent {
-  isSidebarMinimized = true;
+  isSidebarMinimized = false;
 
   toggleSidebar() {
     this.isSidebarMinimized = !this.isSidebarMinimized;
