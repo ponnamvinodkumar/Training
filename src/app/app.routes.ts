@@ -20,16 +20,15 @@ export const routes: Routes = [
     title: 'Tasks',
   },
   {
-
     path:'Dashboard',
     component:DashboardComponent,
     title:'Dashboard',
-  },  {
+  },  
+  {
     path:'TimeEntries',
     component:TimeEntriesComponent,
     title:'TimeEntries',
   },
-
   {
     path: 'Timesheet',
     component: TimesheetComponent,

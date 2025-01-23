@@ -16,7 +16,7 @@
   
           <ul class="menu-list">
             <li class="menu-item">
-              <a [routerLink]="['/Dashboard']" class="menu-link active">
+              <a [routerLink]="['/Dashboard']" class="menu-link active"> 
                 <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                 </svg>
@@ -69,29 +69,33 @@
 <br>
       <form class="form">
         <label>Project
-          <input type="Dropdown"[(ngModel)]="NewEntry.project" name="project" required/>
+          <select [(ngModel)]="NewTimeEntry.project" name="project" required>
+            <option *ngFor="let project of TimesheetEntries" [value]="project">{{ project }}</option>
+          </select>
         </label>
-       
+
         <label>Tasks
-          <input type="text" [(ngModel)]="NewEntry.task" name="Tasks" required/>
+          <select [(ngModel)]="NewTimeEntry.task" name="task" required>
+            <option *ngFor="let task of TimesheetEntries" [value]="task">{{ task }}</option>
+          </select>
         </label>
 
         <label>Date
-            <input type="number" [(ngModel)]="NewEntry.hours" name="Date" required/>
+            <input type="date" [(ngModel)]="NewTimeEntry.date" name="Date" required/>
           </label>
 
         <label>Hours
-          <input type="number" [(ngModel)]="NewEntry.hours" name="hours" required/>
+          <input type="number" [(ngModel)]="NewTimeEntry.hours" name="hours" required/>
         </label>
 
-        <label>Billable</label>
-        <input type="checkbox" name="Billable">
+        <label>Billable
+          <input type="checkbox" [(ngModel)]="NewTimeEntry.isbillable" name="Billable">
+        </label>
 
-        <button class="button" type="button" (click)="addEntry()">Add Timesheet</button>
+        <button class="button" type="button" (click)="addTimeEntry()">Submit</button>
       </form>
     </div>
   </main>
  
 
 
-</body>
