@@ -7,13 +7,14 @@ interface TimeEntry {
   billable: boolean;
   timeSpent: number;
   status: boolean;
+
   comments: string;
 }
 
 @Component({
   selector: 'app-time-entry-table',
-  templateUrl: './time-entry-table.component.html',
-  styleUrls: ['./time-entry-table.component.css']
+  templateUrl: './time-entries.component.html',
+  styleUrls: ['./time-entries.component.css']
 })
 export class TimeEntryTableComponent {
   @Input() entries: TimeEntry[] = [];
