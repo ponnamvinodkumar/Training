@@ -1,5 +1,5 @@
 import { Component,OnInit } from '@angular/core';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
@@ -11,8 +11,9 @@ import { FormsModule, FormGroup, ReactiveFormsModule } from '@angular/forms';
   styleUrl: './timesheet.component.css'
 })
 export class TimesheetComponent {
- 
-  
+
+  constructor(private router: Router){}
+
     isSidebarMinimized = true;
   
     toggleSidebar() {
@@ -20,15 +21,16 @@ export class TimesheetComponent {
     }
 
 
-  //Timesheet Capturing
-  TaskEntries:{project:string; task:string; date:string; hours:string; billable:boolean}[]=[];
-  NewEntry={project: '', task: '', date: '', hours: '', billable: false};
+  //CapturingTimesheet 
+  TimesheetEntries:{project:string; task:string; date:string; hours:string; isbillable:boolean}[]=[];
+  NewTimeEntry={project: '', task: '', date: '', hours: '', isbillable: false};
 
-  addEntry(){
-    console.log('Before adding:', this.TaskEntries);
-    this.TaskEntries.push({...this.NewEntry});
-    console.log('After adding:', this.TaskEntries);
-    this.NewEntry = {project: '', task: '', date: '', hours: '', billable: false};
+  addTimeEntry(){
+    console.log('Before adding:', this.TimesheetEntries);
+    this.TimesheetEntries.push({...this.NewTimeEntry});
+    console.log('After adding:', this.TimesheetEntries);
+    this.NewTimeEntry = {project: '', task: '', date: '', hours: '', isbillable: false};
+    // this.router.navigate(['/Dashboard']);
   }
   
   }

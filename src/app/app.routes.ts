@@ -29,10 +29,6 @@ export const routes: Routes = [
     component:TimeEntriesComponent,
     title:'TimeEntries',
   },
-<<<<<<< HEAD
-=======
-
->>>>>>> bdafb03cc45ebc42860a2a728519a0ce05ce3178
   {
     path: 'Timesheet',
     component: TimesheetComponent,
