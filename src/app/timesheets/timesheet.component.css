@@ -1,3 +1,4 @@
+
 /* Root Variables */
 :root {
   --sidebar-width-expanded: 12rem;
@@ -211,7 +212,6 @@ input {
   transition: border-color 0.3s;
 }
 
-
 .button {
   width: 50%;
   padding: 0.75rem;
@@ -230,19 +230,3 @@ button:hover {
   transform: scale(1.05);
 }
 
-/* Optional Scrollbar Style */
-.sidebar::-webkit-scrollbar {
-  width: 5px;
-}
-
-.sidebar::-webkit-scrollbar-thumb {
-  background: rgba(255, 255, 255, 0.2);
-  border-radius: 10px;
-}
-
-/* Smooth Transitions */
-.sidebar,
-.menu-link,
-.menu-icon {
-  transition: all var(--transition-speed);
-}
