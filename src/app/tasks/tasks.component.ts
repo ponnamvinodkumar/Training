@@ -19,6 +19,21 @@ export class TasksComponent {
       this.isSidebarMinimized = !this.isSidebarMinimized;
     }
 
+  //Task Capturing
+
+  TaskEntries:{project:string; hours:string; task:string}[]=[];
+  NewEntry={project: '', hours:'', task:''};
+
+  addEntry(){
+    console.log('Before adding:', this.TaskEntries);
+    this.TaskEntries.push({...this.NewEntry});
+    console.log('After adding:', this.TaskEntries);
+    this.NewEntry = {project:'', hours:'', task:''};
+    // this.router.navigate(['/Dashboard']);
+  }
+  
+  }
+
      //AddTask
      projectName = '';
      taskName = '';
@@ -47,3 +62,4 @@ export class TasksComponent {
       this.duration= NaN;
      }
 }
+
