@@ -1,5 +1,4 @@
-<html lang="en">
-  <title></title>
+<html>
   <body>
     <div class="flex"> 
       <div class="sidebar" [class.minimized]="isSidebarMinimized">
@@ -17,7 +16,7 @@
   
           <ul class="menu-list">
             <li class="menu-item">
-              <a [routerLink]="['/Dashboard']" class="menu-link">
+              <a [routerLink]="['/Dashboard']" class="menu-link active"> 
                 <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"></path>
                 </svg>
@@ -26,7 +25,7 @@
             </li>
   
             <li class="menu-item">
-              <a [routerLink]="['/Tasks']" class="menu-link active">
+              <a [routerLink]="['/Tasks']" class="menu-link">
                 <svg class="menu-icon" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"></path>
                 </svg>
@@ -62,33 +61,41 @@
       
       </div>
     </div>
-
- <router-outlet></router-outlet>
-
+ 
   <main>
     <div class="main-content">
-      <h1>Add Tasks</h1>
+      <h1>Add Timesheets</h1>
 <br>
 <br>
-<div class="task-container">
- 
-  <form  (ngSubmit)="addTask()" class="form">
-    
-      <label>Project Name</label>
-      <input type="text" id="projectName" [(ngModel)]="projectName" name="projectName" required />
-    
-    
-      <label>Task Name</label>
-      <input type="text" id="taskName" [(ngModel)]="taskName" name="taskName" required />
-   
-      <label>Hours</label>
-      <input type="number" id="hours" [(ngModel)]="duration" name="hours" required />
-    
-    <button class="button" type="submit">Add Task</button>
-  </form>
+      <form class="form">
+        <label>Project
+          <select [(ngModel)]="NewTimeEntry.project" name="project" required>
+            <option *ngFor="let project of TimesheetEntries" [value]="project">{{ project }}</option>
+          </select>
+        </label>
+
+        <label>Tasks
+          <select [(ngModel)]="NewTimeEntry.task" name="task" required>
+            <option *ngFor="let task of TimesheetEntries" [value]="task">{{ task }}</option>
+          </select>
+        </label>
+
+        <label>Date
+            <input type="date" [(ngModel)]="NewTimeEntry.date" name="Date" required/>
+          </label>
+
+        <label>Hours
+          <input type="number" [(ngModel)]="NewTimeEntry.hours" name="hours" required/>
+        </label>
+
+        <label>Billable
+          <input type="checkbox" [(ngModel)]="NewTimeEntry.isbillable" name="Billable">
+        </label>
+
+        <button class="button" type="button" (click)="addTimeEntry()">Submit</button>
+      </form>
     </div>
   </main>
  
 
 
-</body>
