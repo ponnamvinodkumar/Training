@@ -5,7 +5,7 @@ import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './../sidebar/sidebar.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { ReactiveFormsModule } from '@angular/forms';
-import { FormGroup,FormControl } from '@angular/forms';
+
 
 @Component({
   selector: 'app-time-entries',
@@ -16,16 +16,18 @@ import { FormGroup,FormControl } from '@angular/forms';
 
 export class TimeEntriesComponent implements OnInit {
 
-  dropdownForm = new FormGroup({
-    selectedOption: new FormControl('option1')
-  });
 
-  options = [
+  CategoryOptions = [
     { value: 'option1', label: 'Training' },
     { value: 'option2', label: 'Projects' },
     { value: 'option3', label: 'SLA' }
   ];
 
+  CustomerOptions = [
+    { value: 'option1', label: 'Datacentrix' },
+    { value: 'option2', label: 'Master builders Association' },
+    { value: 'option3', label: 'FPT logistics group' }
+  ];
   timeEntries: TimeEntry[] = [];
   newEntry: TimeEntry = {
     date: '',

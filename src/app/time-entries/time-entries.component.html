@@ -12,26 +12,29 @@
     <div class="badge">8</div>
   </div>
   </div>
-
-
-
           <form (submit)="addEntry()" class="entry-form" class="inputTable">
             <table style="border:none !important" class="inputTable">
               <tr style="border:none !important">
                 <td> 
-                  <input type="date" [(ngModel)]="newEntry.date" name="date" required />
+                  <input type="date" [(ngModel)]="newEntry.date" name="date" required/>
                 </td>
                 <td>
-                  <form [formGroup]="dropdownForm">
-                    <select formControlName="selectedOption">
-                      <option *ngFor="let option of options" [value]="option.value">
+           
+                    <select [(ngModel)]="newEntry.category" [ngModelOptions]="{standalone: true}">
+                      <option *ngFor="let option of CategoryOptions" [value]="option.value">
                         {{ option.label }}
                       </option>
                     </select>
-                  </form>
+        
                 </td>
                 <td>
-                  <input type="text" [(ngModel)]="newEntry.customer" name="customer" placeholder="Customer" required />
+   
+                  <select [(ngModel)]="newEntry.customer" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let option of CustomerOptions" [value]="option.value">
+                      {{ option.label }}
+                    </option>
+                  </select>
+            
                 </td>
                 <td>
                   <input type="checkbox" [(ngModel)]="newEntry.billable" name="billable" /> Billable
