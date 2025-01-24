@@ -22,7 +22,13 @@
                   <input type="date" [(ngModel)]="newEntry.date" name="date" required />
                 </td>
                 <td>
-                  <input type="text" [(ngModel)]="newEntry.category" name="category" placeholder="Category" required />
+                  <form [formGroup]="dropdownForm">
+                    <select formControlName="selectedOption">
+                      <option *ngFor="let option of options" [value]="option.value">
+                        {{ option.label }}
+                      </option>
+                    </select>
+                  </form>
                 </td>
                 <td>
                   <input type="text" [(ngModel)]="newEntry.customer" name="customer" placeholder="Customer" required />

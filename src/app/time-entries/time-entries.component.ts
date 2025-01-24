@@ -4,15 +4,28 @@ import { FormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 import { SidebarComponent } from './../sidebar/sidebar.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
+import { ReactiveFormsModule } from '@angular/forms';
+import { FormGroup,FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-time-entries',
   templateUrl: './time-entries.component.html',
   styleUrls: ['./time-entries.component.css'],
-  imports: [CommonModule, FormsModule, SidebarComponent], schemas: [CUSTOM_ELEMENTS_SCHEMA]
+  imports: [CommonModule, FormsModule, SidebarComponent,ReactiveFormsModule], schemas: [CUSTOM_ELEMENTS_SCHEMA]
 })
 
 export class TimeEntriesComponent implements OnInit {
+
+  dropdownForm = new FormGroup({
+    selectedOption: new FormControl('option1')
+  });
+
+  options = [
+    { value: 'option1', label: 'Training' },
+    { value: 'option2', label: 'Projects' },
+    { value: 'option3', label: 'SLA' }
+  ];
+
   timeEntries: TimeEntry[] = [];
   newEntry: TimeEntry = {
     date: '',

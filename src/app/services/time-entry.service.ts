@@ -86,4 +86,12 @@ export class TimeEntryService {
   clearEntries(): void {
     this.timeEntriesSubject.next([]);
   }
+  approveTimeEntry(index: number): void {
+    const currentEntries = this.timeEntriesSubject.getValue();
+    if (index >= 0 && index < currentEntries.length) {
+      currentEntries[index].status = true;
+      this.timeEntriesSubject.next([...currentEntries]);
+    }
+  }
 }
+
