@@ -37,6 +37,14 @@ export class TimeEntryService {
       timeSpent: 3,
       status: false,
       comments: 'Performed unit testing'
+    },    {
+      date: '2025-01-02',
+      category: 'Training',
+      customer: 'Datacentrix',
+      billable: false,
+      timeSpent: 8,
+      status: false,
+      comments: 'Angular Training'
     }
   ];
   constructor() {
