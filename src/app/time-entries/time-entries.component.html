@@ -12,20 +12,29 @@
     <div class="badge">8</div>
   </div>
   </div>
-
-
-
           <form (submit)="addEntry()" class="entry-form" class="inputTable">
             <table style="border:none !important" class="inputTable">
               <tr style="border:none !important">
                 <td> 
-                  <input type="date" [(ngModel)]="newEntry.date" name="date" required />
+                  <input type="date" [(ngModel)]="newEntry.date" name="date" required/>
                 </td>
                 <td>
-                  <input type="text" [(ngModel)]="newEntry.category" name="category" placeholder="Category" required />
+           
+                    <select [(ngModel)]="newEntry.category" [ngModelOptions]="{standalone: true}">
+                      <option *ngFor="let option of CategoryOptions" [value]="option.value">
+                        {{ option.label }}
+                      </option>
+                    </select>
+        
                 </td>
                 <td>
-                  <input type="text" [(ngModel)]="newEntry.customer" name="customer" placeholder="Customer" required />
+   
+                  <select [(ngModel)]="newEntry.customer" [ngModelOptions]="{standalone: true}">
+                    <option *ngFor="let option of CustomerOptions" [value]="option.value">
+                      {{ option.label }}
+                    </option>
+                  </select>
+            
                 </td>
                 <td>
                   <input type="checkbox" [(ngModel)]="newEntry.billable" name="billable" /> Billable
@@ -72,7 +81,7 @@
         <td>{{ entry.date }}</td>
         <td>{{ entry.category }}</td>
         <td>{{ entry.customer }}</td>
-        <td>{{ entry.billable ? 'Yes' : 'No' }}</td>
+        <td ><div class="{{ entry.billable ? 'Green' : 'Red' }}" >{{ entry.billable ? 'Yes' : 'No' }}</div></td>
         <td>{{ entry.timeSpent }}</td>
         <td>{{ entry.status ? 'Completed' : 'Pending' }}</td>
         <td>{{ entry.comments }}</td>

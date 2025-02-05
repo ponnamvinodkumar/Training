@@ -37,6 +37,14 @@ export class TimeEntryService {
       timeSpent: 3,
       status: false,
       comments: 'Performed unit testing'
+    },    {
+      date: '2025-01-02',
+      category: 'Training',
+      customer: 'Datacentrix',
+      billable: false,
+      timeSpent: 8,
+      status: false,
+      comments: 'Angular Training'
     }
   ];
   constructor() {
@@ -78,4 +86,12 @@ export class TimeEntryService {
   clearEntries(): void {
     this.timeEntriesSubject.next([]);
   }
+  approveTimeEntry(index: number): void {
+    const currentEntries = this.timeEntriesSubject.getValue();
+    if (index >= 0 && index < currentEntries.length) {
+      currentEntries[index].status = true;
+      this.timeEntriesSubject.next([...currentEntries]);
+    }
+  }
 }
+
